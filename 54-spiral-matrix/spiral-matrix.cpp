@@ -10,7 +10,7 @@ public:
         vector<int> temp;
     while(count < total){
         //starting row
-        for(int i = startingCol ; count < total && i <= endCol ; i ++ ){
+        for(int i = startingRow ; count < total && i <= endCol ; i ++ ){
                 temp.push_back(matrix[startingRow][i]);
                 count ++;
         }
