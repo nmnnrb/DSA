@@ -40,16 +40,9 @@ public:
      }else if(l1 -> val == l2 -> val){
         l1 = l1 -> next;
         l2 = l2 -> next;
-         return solve(list1, list2);
+         return solve(list2, list1);
      }
         }
-        // while(l1 != NULL && l2 != NULL){
-        //  if(l1 -> val == l2 -> val){
-        //      l1 = l1 -> next;
-        //      l2 = l2 -> next;
-            
-        //  }
-        // }
         return list1;
     }
 };
