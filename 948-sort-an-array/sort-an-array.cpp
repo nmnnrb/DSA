@@ -4,7 +4,7 @@ public:
     void  heapify(vector<int>& nums , int n , int i){
         int largest = i; 
 
-        while(true){
+        while(n>=0){
         int left = 2*i+1;
         int right = 2*i+2;
 
