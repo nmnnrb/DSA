@@ -15,7 +15,6 @@ int solve(vector<int>& cost){
     return min(dp[n-1] , dp[n-2]);
 }
     int minCostClimbingStairs(vector<int>& cost) {
-        int ans = solve(cost);
-    return ans;
+    return solve(cost);
     }
 };
