@@ -10,67 +10,28 @@
  */
 class Solution {
 public:
-ListNode* reverse(ListNode* head){
-        ListNode* curr = head;
-        ListNode* prev = NULL, *next = NULL;
-        while(curr!= NULL){
-            next = curr -> next;
-            curr -> next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-}
-ListNode* insertattail(ListNode* &head ,ListNode* &tail,int digit){
-       ListNode* newnode = new ListNode(digit);
-        if(head==NULL){
-            head = newnode;
-            tail = newnode;
-        }
-        else{
-            tail -> next = newnode;
-            tail = newnode;
-        }
-        return head;
-    }
-
-
-    ListNode* add(ListNode* first, ListNode* second){
-        ListNode* head = NULL , * tail = NULL;
-        int carry =0;
-        while(first != NULL || second != NULL || carry!=0){
-            int val1 =0;
-            if(first !=NULL){
-                val1 = first -> val;
-            }
-            int val2 =0;
-            if(second !=NULL){
-                val2 = second -> val;
-            }
-            int sum = val1 + val2 + carry;
-            int digit = sum % 10;
-            insertattail(head ,tail, digit);
-            carry = sum/ 10;
-            if(first != NULL)
-                 first = first ->next;
-                 
-            if(second != NULL)
-                 second = second -> next;
-        }
-        
-        return head;
-    }
-
-
-
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        if(l1==NULL)
-            return l2;
-        if(l2==NULL)
-            return l1;
-        //addd
-        ListNode* ans = add(l1,l2);
-        
-        return ans;
+      ListNode* ans = new ListNode();
+      ListNode* dummy  = ans;
+        int carry = 0 ;
+      while(l1 != nullptr || l2 != nullptr || carry != 0){
+        int sum = carry;
+        if(l1 != nullptr){
+            sum += l1 -> val;
+            l1 = l1 -> next ;
+        }
+
+        if(l2 != nullptr){
+            sum += l2 -> val;
+            l2 = l2 -> next;
+        }
+
+         carry = sum / 10;
+        int val = sum % 10;
+         
+        dummy -> next = new ListNode(val) ;
+        dummy = dummy -> next;
+      }
+       return ans -> next;
     }
 };
